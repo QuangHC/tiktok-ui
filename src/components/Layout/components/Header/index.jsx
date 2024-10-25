@@ -3,8 +3,8 @@ import {useState} from "react";
 import classNames from "classnames/bind.js";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
-    faCircleXmark, faCloudUpload, faEarthAsia,
-    faEllipsisVertical, faEnvelope, faGear, faHouseLaptop, faKeyboard,
+    faCircleXmark, faEarthAsia,
+    faEllipsisVertical, faGear, faHouseLaptop, faKeyboard,
     faMagnifyingGlass,
     faSignIn, faSignOut,
     faSpinner, faUser
