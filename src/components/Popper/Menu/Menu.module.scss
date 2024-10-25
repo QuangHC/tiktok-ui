@@ -1,0 +1,46 @@
+.menu-list
+{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  margin: 0px;
+  min-width: 224px;
+  list-style: none;
+}
+
+.menu-item {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 0;
+  font-weight: 600;
+  line-height: 16px;
+
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+// Header
+.header {
+  position: relative;
+  height: 50px;
+  margin-top: -8px;
+}
+.back-btn {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

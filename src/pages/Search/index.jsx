@@ -1,11 +1,5 @@
 function Search() {
-    return (
-        <>
-            <div className="content">
-                <h2>Search page</h2>
-            </div>
-        </>
-    )
+    return <h2>Search Page</h2>
 }
 
 export default Search;

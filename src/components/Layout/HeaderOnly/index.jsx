@@ -1,15 +1,10 @@
-import Header from '~/components/Layout/components/Header';
+// import Header from '~/components/Layout/components/Header';
 
-// eslint-disable-next-line react/prop-types
-function HeaderOnly( {children} ) {
+function HeaderOnly({children}) {
     return (
         <div>
-            <Header />
-            <div className="container">
-                <div className="content">
-                    {children}
-                </div>
-            </div>
+            <div>Header Only</div>
+            {children}
         </div>
     )
 }
