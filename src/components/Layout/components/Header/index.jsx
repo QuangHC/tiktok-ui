@@ -1,5 +1,5 @@
 // import Header from '~/components/Layout/components/Header';
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import classNames from "classnames/bind.js";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
