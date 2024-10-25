@@ -1,0 +1,23 @@
+.wrapper {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sub-icon {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  left: 16px;
+  background: rgb(254, 44, 85);
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 10px;
+  position: absolute;
+  padding: 0 4px;
+  top: -20%
+}
