@@ -1,33 +1,39 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {Fragment, StrictMode} from "react";
 import { publicRoutes } from "~/routes";
-import SidebarWithHeader from "~/components/Layout/SidebarWithHeader";
-import { Fragment } from "react";
+import {
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query'
 
+import SidebarWithHeader from "~/components/Layout/SidebarWithHeader";
+
+const queryClient = new QueryClient();
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    {publicRoutes.map((route, index) => {
-                        let Layout = SidebarWithHeader; // Giữ layout cho các route
-                        if (route.layout) {
-                            Layout = route.layout;
-                        } else if (route.layout === null) {
-                            Layout = Fragment;
-                        }
-                        const Page = route.component;
+        <StrictMode>
+            <QueryClientProvider client={queryClient}>
+                <BrowserRouter>
+                    <div className="App">
+                        <Routes>
+                            {publicRoutes.map((route, index) => {
+                                const Layout = route.layout === null ? Fragment : route.layout || SidebarWithHeader;
 
-                        return (
-                            <Route key={index} path={route.path} element={
-                                <Layout>
-                                    <Page />
-                                </Layout>
-                            } />
-                        );
-                    })}
-                </Routes>
-            </div>
-        </Router>
+                                const Page = route.component;
+
+                                return (
+                                    <Route key={index} path={route.path} element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    } />
+                                );
+                            })}
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </QueryClientProvider>
+        </StrictMode>
     );
 }
 

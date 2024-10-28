@@ -3,26 +3,21 @@ import {useState} from "react";
 import classNames from "classnames/bind.js";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
-    faCircleXmark, faEarthAsia,
-    faEllipsisVertical, faGear, faHouseLaptop, faKeyboard,
-    faMagnifyingGlass,
-    faSignIn, faSignOut,
-    faSpinner, faUser
+    faEarthAsia, faEllipsisVertical, faGear, faHouseLaptop, faKeyboard,
+    faSignIn, faSignOut, faUser
 } from "@fortawesome/free-solid-svg-icons";
+import {faBitcoin} from "@fortawesome/free-brands-svg-icons";
 import {faCircleQuestion, faMoon} from "@fortawesome/free-regular-svg-icons";
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import images from "~/assets/images/index.js";
-import Button from "~/components/Button/index.jsx";
-import styles from "./Header.module.scss";
-import {Wrapper as PopperWrapper} from "~/components/Popper/index.jsx";
-import AccountItem from "~/components/AccountItem/index.jsx";
-import Menu from "~/components/Popper/Menu";
-import {faBitcoin} from "@fortawesome/free-brands-svg-icons";
 import {NotifyIcon, UploadIcon} from "~/components/Icons/index.jsx";
 import {Image} from "~/components/Image/index.jsx";
+import {Search} from "~/components/Layout/components/Search"
+import images from "~/assets/images/index.js";
+import Button from "~/components/Button/index.jsx";
+import Menu from "~/components/Popper/Menu";
+import styles from "./Header.module.scss";
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -99,15 +94,7 @@ const userMenu = [
 ]
 
 function Header() {
-    // const [menuItem, setMenuItem] = useState(MENU_ITEMS);
     const [currentUser, setCurrentUser] = useState(false);
-    // const [searchResult, setSearchResult ] = useState(false);
-    //
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setSearchResult([1, 2, 3]);
-    //     }, 0)
-    // }, [])
 
     const handleOnChange = (item) => {
         console.log(item);
@@ -127,38 +114,8 @@ function Header() {
             <div className={cx('inner')}>
                 <img src={images.logo} alt="Tiktok"/>
 
-                <HeadlessTippy
-                    interactive
-                    // visible={searchResult.length > 0}
-                    // visible={true}
-                    render={attrs => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Accounts
-                                </h4>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
-
-                                {/*{searchResult}*/}
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Search accounts and videos" spellCheck={false}/>
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark}/>
-                        </button>
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner}/>
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                        </button>
-                    </div>
-                </HeadlessTippy>
-
+                {/* Search */}
+                <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
